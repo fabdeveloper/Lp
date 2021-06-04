@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://java.sun.com/jsf/html">
+<p:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</p:head>
+<p:body>
+
+
+
+
+	<p:form>
+	
+		<input  value="#{productLoaderWithExcelBB.fileLocation}" type="file" ></input>
+		<p:commandButton value="refresh" action="#{productLoaderWithExcelBB.refreshModel()}"></p:commandButton><br/>
+		<p:commandButton value="loadFile" action="#{productLoaderWithExcelBB.loadExcelFile()}"></p:commandButton><br/><br/>
+
+		<hr />
+		<!-- 		<p:inputText value="#{productLoaderWithExcelBB.fileLocation}"></p:inputText> -->
+<!-- 		<p:inputText value="#{myBB.cadena}"></p:inputText> -->
+	
+		<p:commandButton value="create product list" action="#{productLoaderWithExcelBB.createProductList()}"></p:commandButton>
+		<p:commandButton value="persist product list" action="#{productLoaderWithExcelBB.persistProductList()}"></p:commandButton><br/><br/>
+
+		<p:commandButton value="create articulo list" action="#{productLoaderWithExcelBB.createArticuloList()}"></p:commandButton>
+		<p:commandButton value="persist articulo list" action="#{productLoaderWithExcelBB.persistArticuloList()}"></p:commandButton><br/><br/>
+
+		<p:commandButton value="create oferta list" action="#{productLoaderWithExcelBB.createOfertaList()}"></p:commandButton>
+		<p:commandButton value="persist oferta list" action="#{productLoaderWithExcelBB.persistOfertaList()}"></p:commandButton><br/><br/>
+
+	</p:form>
+	<p:messages>
+
+		<p:message></p:message>
+
+	</p:messages>
+</p:body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+   
+       
+   <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>cart</from-outcome>
+		   <to-view-id>/shopping/CartDetail.xhtml</to-view-id>
+	   </navigation-case> 
+   </navigation-rule>   
+
+   <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>availability</from-outcome>
+		   <to-view-id>/Home.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule>
+   
+   <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>config</from-outcome>
+		   <to-view-id>/shopping/ConfigDetail.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule>
+   
+   <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>order</from-outcome>
+		   <to-view-id>/shopping/OrderDetail.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule>
+   
+  <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>oferta</from-outcome>
+		   <to-view-id>/shopping/OfertaDetail.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule>
+   
+   <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>home</from-outcome>
+		   <to-view-id>/Home.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule>
+   
+      <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>error</from-outcome>
+		   <to-view-id>/login/error.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule>
+   
+      <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>login</from-outcome>
+		   <to-view-id>/login/LoginForm.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule>   
+   
+   <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>user</from-outcome>
+		   <to-view-id>/backoffice/AccountManagement.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule> 
+ 
+</faces-config>
