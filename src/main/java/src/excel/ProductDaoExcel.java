@@ -1,5 +1,6 @@
 package src.excel;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 
 import org.apache.poi.ss.usermodel.Row;
@@ -9,10 +10,13 @@ import src.entity.Product;
 @RequestScoped
 public class ProductDaoExcel extends AbstractDaoExcel<Product> {
 	
+
 	
-	public ProductDaoExcel() {
-		setFileName("C:\\Users\\fabo_\\OneDrive\\Escritorio\\productLoad.xls");
-		setSheetName("products");
+	@PostConstruct
+	@Override
+	public void init() {
+		setFileName("C:\\Users\\fabo_\\OneDrive\\Escritorio\\rs3db.ods");
+		setSheetName("products");		
 	}
 
 	@Override

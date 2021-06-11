@@ -71,6 +71,12 @@
 		    <artifactId>primefaces</artifactId>
 		    <version>8.0</version>
 		</dependency>
+		
+	<dependency>
+  		<groupId>JEE7</groupId>
+  		<artifactId>RS3Utility</artifactId>  		
+  		<version>0</version>  		
+  	</dependency>
 
 
   </dependencies>
@@ -78,7 +84,6 @@
   <build>
 
     <finalName>Lp</finalName>
-    <!-- <pluginManagement>lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -106,7 +111,6 @@
           </execution>
     </executions> 
   </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
@@ -128,6 +132,5 @@
 
 
       </plugins>
-    <!-- </pluginManagement> -->
   </build>
 </project>

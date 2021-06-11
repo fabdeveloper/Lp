@@ -2,6 +2,7 @@ package src.excel;
 
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -14,10 +15,6 @@ import src.entity.Product;
 public class ArticuloDaoExel extends AbstractDaoExcel<Articulo> {
 	
 	
-	public ArticuloDaoExel() {
-		setFileName("C:\\Users\\fabo_\\OneDrive\\Escritorio\\productLoad.xls");
-		setSheetName("articulos");
-	}
 
 	@Override
 	public Articulo rowToEntity(Row row) {
@@ -36,6 +33,13 @@ public class ArticuloDaoExel extends AbstractDaoExcel<Articulo> {
 				art.setCreationDate(new Date());		
 		
 		return art;
+	}
+
+	@PostConstruct
+	@Override
+	public void init() {
+		setFileName("C:\\Users\\fabo_\\OneDrive\\Escritorio\\rs3db.ods");
+		setSheetName("articulos");		
 	}
 
 }

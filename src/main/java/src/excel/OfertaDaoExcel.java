@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -15,16 +16,15 @@ import src.entity.Oferta;
 @RequestScoped
 public class OfertaDaoExcel extends AbstractDaoExcel<Oferta> {
 
-//	public OfertaDaoExcel(Class<Oferta> entityClass) {
-//		super(entityClass);
-//	}
+
 	
-	public OfertaDaoExcel() {
-		setFileName("C:\\Users\\fabo_\\OneDrive\\Escritorio\\productLoad.xls");
-		setSheetName("ofertas");
-
-
+	@PostConstruct
+	@Override
+	public void init() {
+		setFileName("C:\\Users\\fabo_\\OneDrive\\Escritorio\\rs3db.ods");
+		setSheetName("ofertas");		
 	}
+
 
 	@Override
 	public Oferta rowToEntity(Row row) {

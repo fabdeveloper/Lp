@@ -40,9 +40,10 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel {
 	private Sheet sheet;
 	
 	
-//	public AbstractDaoExcel(Class<E> entityClass){
-//		this.entityClass = entityClass;
-//	}
+
+
+	public abstract E rowToEntity(Row row);
+	public abstract void init();
 	
 	
 	
@@ -84,7 +85,6 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel {
 		setList(listaTemporal); 
 	}
 
-	public abstract E rowToEntity(Row row);
 
 
 	@Override

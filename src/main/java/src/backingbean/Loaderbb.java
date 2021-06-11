@@ -1,8 +1,6 @@
 package src.backingbean;
 
 import java.io.Serializable;
-import java.util.Date;
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
