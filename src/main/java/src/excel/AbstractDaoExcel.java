@@ -11,25 +11,30 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import src.entity.Oferta;
 import src.entityservices.IEntityServices;
+import src.exception.DBException;
 import src.inter.IServiceLocator;
 
-public abstract class AbstractDaoExcel<E> implements IDaoExcel {
+public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 	
 //	private Class<E> entityClass;
 
-	@Inject
-	private IEntityServices<E> entityServices;
 	
 	@Inject
 	private IServiceLocator serviceLocator;
+	
+//	public AbstractDaoExcel(Class<E> entityClass){
+//		this.entityClass = entityClass;
+//	}
+	
+
 	
 	
 	private List<E> list;	
@@ -46,6 +51,20 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel {
 	public abstract void init();
 	
 	
+	protected void publish(String msg) {
+		publishStandard(msg);
+		publishFaces(msg);
+		//publishLog(msg, level);
+	}
+	
+	private void publishStandard(String msg) {
+		System.out.println(msg);
+	}
+	
+	private void publishFaces(String msg) {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg));
+	}
+	
 	
 	@Override
 	public void loadFile() {
@@ -54,14 +73,16 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel {
 			try {
 				file = new FileInputStream(new File(fileName));				
 				workbook = new HSSFWorkbook(file);
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Loaded file: " + fileName));
+				publish("Loaded file: " + fileName);
 				
 			} catch (FileNotFoundException e) {				
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				String msg = "loadFile() - error = FileNotFoundException - msg = " + e.getMessage();
+				publish(msg);
+//				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				String msg = "loadFile() - error = IOException - msg = " + e.getMessage();
+				publish(msg);
+//				e.printStackTrace();
 			}
 
 	}
@@ -76,8 +97,8 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel {
 			try {
 				newentity = rowToEntity(it.next());
 			} catch (Throwable e) {
-				// TODO Auto-generated catch block
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("row con problemas :   " + e.getMessage()));
+				String msg = "createList() - ERROR - row con problemas :   " + e.getMessage();
+				publish(msg);
 			}	
 			if(newentity != null)
 			listaTemporal.add(newentity);
@@ -89,12 +110,16 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel {
 
 	@Override
 	public void persistList() {
-		IEntityServices<E> es = getEntityServices();
+		publish("listSize =  " + getList().size());
+		EntityManager em = getEntityManager();
 		for(E e : getList()) {
-			es.create(e);
+			try {
+				em.persist(e);
+			}catch(Throwable t) {
+				String msg = "persistList() - ERROR - entity con problemas :   " + t.getMessage();
+				publish(msg);
+			}
 		}	
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("listSize =  " + getList().size()));
-
 	}
 	@Override
 	public Workbook getWorkbook() {
@@ -144,12 +169,15 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel {
 //		this.entityClass = entityClass;
 //	}
 
-	public IEntityServices<E> getEntityServices() {
-		return entityServices;
-	}
-
-	public void setEntityServices(IEntityServices<E> entityServices) {
-		this.entityServices = entityServices;
+	@Override
+	public EntityManager getEntityManager() {
+		EntityManager em = null;
+		try{
+			em = getServiceLocator().getEntityManager();
+		}catch(Throwable t){
+			throw new DBException("EntityManager error", t);
+		}
+		return em;
 	}
 
 	@Override

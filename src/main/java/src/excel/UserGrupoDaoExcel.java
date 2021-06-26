@@ -1,5 +1,11 @@
 package src.excel;
 
-public class UserGrupoDaoExcel extends AbstractDaoExcel<UserGrupo> {
+import src.entity.Product;
+
+public class UserGrupoDaoExcel /*extends AbstractDaoExcel<UserGrupo> */{
+	
+	public UserGrupoDaoExcel() {
+//		super(UserGrupo.class);
+	}
 
 }

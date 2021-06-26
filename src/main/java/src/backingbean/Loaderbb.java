@@ -7,6 +7,7 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import src.entity.Articulo;
+import src.entity.Grupo;
 import src.entity.Oferta;
 import src.entity.Product;
 import src.excel.AbstractDaoExcel;
@@ -14,13 +15,16 @@ import src.excel.AbstractDaoExcel;
 @Named
 @SessionScoped
 public class Loaderbb implements Serializable {
-	
+
+	private static final long serialVersionUID = 1L;
 	@Inject 
 	private AbstractDaoExcel<Product> productDaoExcel;
 	@Inject 
 	private AbstractDaoExcel<Articulo> articuloDaoExcel;	
 	@Inject 
 	private AbstractDaoExcel<Oferta> ofertaDaoExcel;
+	@Inject 
+	private AbstractDaoExcel<Grupo> grupoDaoExcel;
 	
 	
 	private String cadena = "NO_INICIADO";
@@ -40,18 +44,27 @@ public class Loaderbb implements Serializable {
 		return "";
 	}
 	
+	@Transactional
 	public String persistProductsList() {
 		getProductDaoExcel().persistList();		
 		return "";
 	}
 	
+	@Transactional
 	public String persistArticulosList() {
 		getArticuloDaoExcel().persistList();
 		return "";
 	}
 	
+	@Transactional
 	public String persistOfertasList() {
 		getOfertaDaoExcel().persistList();
+		return "";
+	}
+	
+	@Transactional
+	public String persistGruposList() {
+		getGrupoDaoExcel().persistList();
 		return "";
 	}
 
@@ -77,6 +90,19 @@ public class Loaderbb implements Serializable {
 
 	public void setOfertaDaoExcel(AbstractDaoExcel<Oferta> ofertaDaoExcel) {
 		this.ofertaDaoExcel = ofertaDaoExcel;
+	}
+	
+
+	public AbstractDaoExcel<Grupo> getGrupoDaoExcel() {
+		return grupoDaoExcel;
+	}
+
+	public void setGrupoDaoExcel(AbstractDaoExcel<Grupo> grupoDaoExcel) {
+		this.grupoDaoExcel = grupoDaoExcel;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

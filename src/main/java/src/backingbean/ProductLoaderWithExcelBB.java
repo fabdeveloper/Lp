@@ -31,12 +31,15 @@ import src.inter.IServiceLocator;
 @SessionScoped
 public class ProductLoaderWithExcelBB implements Serializable {
 	
+
+	private static final long serialVersionUID = 106L;
+
 	@Inject
 	private IServiceLocator serviceLocator;
 	
 //	private String fileLocation = "NO_INICIADO";
 
-	private String fileLocation = "C:/Users/fabo_/OneDrive/Escritorio/productLoad.xls";
+	private String fileLocation = "C:/Users/fabo_/OneDrive/Escritorio/rs3db.xls";
 	
 	private List<Product> productList;
 	private List<Articulo> articuloList;
@@ -78,7 +81,7 @@ public class ProductLoaderWithExcelBB implements Serializable {
 	
 //			prod.setId(Integer.getInteger(row.getCell(0).getRichStringCellValue().getString()));
 			prod.setName(row.getCell(1).getRichStringCellValue().getString());
-			prod.setTipo(row.getCell(2).getRichStringCellValue().getString());
+			prod.setType(row.getCell(2).getRichStringCellValue().getString());
 			prod.setUrlImage(row.getCell(3).getRichStringCellValue().getString());
 			
 			productList.add(prod);			
@@ -293,6 +296,10 @@ public class ProductLoaderWithExcelBB implements Serializable {
 
 	public String getCADENA_OFERTA() {
 		return CADENA_OFERTA;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

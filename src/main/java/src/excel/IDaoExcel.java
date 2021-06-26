@@ -1,12 +1,13 @@
 package src.excel;
 
-import org.apache.poi.ss.usermodel.Row;
+import javax.persistence.EntityManager;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import src.inter.IServiceLocator;
 
-public interface IDaoExcel {
+public interface IDaoExcel<E> {
 	
 	public void loadFile();
 	public void createList();
@@ -19,6 +20,7 @@ public interface IDaoExcel {
 	
 
 	public IServiceLocator getServiceLocator();
+	public EntityManager getEntityManager();
 
 
 }
