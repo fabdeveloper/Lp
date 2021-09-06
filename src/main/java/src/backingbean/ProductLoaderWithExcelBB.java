@@ -168,7 +168,7 @@ public class ProductLoaderWithExcelBB implements Serializable {
 	public String persistProductList() {
 		
 		for(Product prod : productList) {
-			serviceLocator.getProductServices().create(prod);
+			serviceLocator.getProductServices().persist(prod);
 		}
 		serviceLocator.getEntityManager().flush();
 		createFacesMsg("persisted product list");
@@ -181,7 +181,7 @@ public class ProductLoaderWithExcelBB implements Serializable {
 		int counter = 0;
 		for(Articulo art : articuloList) {
 			try {
-				serviceLocator.getArticuloServices().create(art);
+				serviceLocator.getArticuloServices().persist(art);
 				counter++;
 			}catch(Throwable t) {
 				String msg = "error grabando registro " + counter + ", " + t.getMessage();
@@ -199,7 +199,7 @@ public class ProductLoaderWithExcelBB implements Serializable {
 		int counter = 0;
 		for(Oferta of : ofertaList) {
 			try {
-				serviceLocator.getOfertaServices().create(of);
+				serviceLocator.getOfertaServices().persist(of);
 				counter++;
 			}catch(Throwable t) {
 				String msg = "error grabando registro " + counter + ", " + t.getMessage();

@@ -24,15 +24,14 @@ import src.inter.IServiceLocator;
 
 public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 	
-//	private Class<E> entityClass;
 
 	
 	@Inject
-	private IServiceLocator serviceLocator;
+	private IServiceLocator serviceLocator; // servicios de BD, persistencia
 	
-//	public AbstractDaoExcel(Class<E> entityClass){
-//		this.entityClass = entityClass;
-//	}
+	@Inject
+	private IEntityServices<E> entityServices;
+	
 	
 
 	
@@ -47,8 +46,8 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 	
 
 
-	public abstract E rowToEntity(Row row);
-	public abstract void init();
+//	public abstract E rowToEntity(Row row);
+//	public abstract void init();
 	
 	
 	protected void publish(String msg) {
@@ -66,13 +65,16 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 	}
 	
 	
+	// carga datos desde un fichero excel 
+	// los datos se almacenan en el objeto "workbook"
 	@Override
 	public void loadFile() {
 
 			FileInputStream file;
 			try {
-				file = new FileInputStream(new File(fileName));				
-				workbook = new HSSFWorkbook(file);
+				file = new FileInputStream(new File(fileName));		
+				setWorkbook(new HSSFWorkbook(file));
+//				workbook = new HSSFWorkbook(file);
 				publish("Loaded file: " + fileName);
 				
 			} catch (FileNotFoundException e) {				
@@ -86,6 +88,9 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 			}
 
 	}
+	
+	
+	// crea una lista de Entity objects a partir de un fichero
 	@Override
 	public void createList() {
 		loadFile();
@@ -108,6 +113,7 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 
 
 
+	// Graba la lista de Entity objects en BD
 	@Override
 	public void persistList() {
 		publish("listSize =  " + getList().size());
@@ -162,12 +168,6 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 		this.sheet = sheet;
 	}
 
-//	public Class<E> getEntityClass() {
-//		return entityClass;
-//	}
-//	public void setEntityClass(Class<E> entityClass) {
-//		this.entityClass = entityClass;
-//	}
 
 	@Override
 	public EntityManager getEntityManager() {
@@ -185,8 +185,19 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 		return serviceLocator;
 	}
 
+	@Override
 	public void setServiceLocator(IServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator;
+	}
+
+	@Override
+	public IEntityServices<E> getEntityServices() {
+		return entityServices;
+	}
+
+	@Override
+	public void setEntityServices(IEntityServices<E> entityServices) {
+		this.entityServices = entityServices;
 	}
 
 	
