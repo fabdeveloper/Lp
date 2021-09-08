@@ -25,14 +25,16 @@ import src.inter.IServiceLocator;
 public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 	
 
-	
+	// TODO: ELIMINAR - servicios de BD no deben estar aquí
+	/****************************/
 	@Inject
 	private IServiceLocator serviceLocator; // servicios de BD, persistencia
 	
 	@Inject
-	private IEntityServices<E> entityServices;
+	private IEntityServices<E> entityServices; // TODO: mejora pendiente - eliminar/reemplazar serviceLocator
 	
-	
+	/****************************/
+
 
 	
 	
@@ -143,21 +145,31 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 	public void setSheetName(String sheet_name) {
 		sheetName = sheet_name;		
 	}
+	
+	@Override
 	public List<E> getList() {
 		if(list == null) {
 			createList();
 		}
 		return list;
 	}
+	
+	@Override
 	public void setList(List<E> list) {
 		this.list = list;
 	}
+	
+	@Override
 	public String getFileName() {
 		return fileName;
 	}
+	
+	@Override
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+	
+	@Override
 	public String getSheetName() {
 		return sheetName;
 	}
@@ -199,6 +211,7 @@ public abstract class AbstractDaoExcel<E> implements IDaoExcel<E> {
 	public void setEntityServices(IEntityServices<E> entityServices) {
 		this.entityServices = entityServices;
 	}
+
 
 	
 	
