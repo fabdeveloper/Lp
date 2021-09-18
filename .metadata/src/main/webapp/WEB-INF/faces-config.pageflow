@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16319645497470" configfile="/Lp/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1330" id="pf16319646471451" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf16319646471452 pf16319646471453 pf16319646471454 pf16319646471455 pf16319646471456 pf16319646471457 pf16319646471458 pf16319646471459 pf163196464714510 pf163196464714511" path="/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="shopping/CartDetail.xhtml" x="338" y="178" id="pf163196464714512" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16319646471452" path="/shopping/CartDetail.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Home.xhtml" x="338" y="562" id="pf163196464714513" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf16319646471453 pf16319646471457" path="/Home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="shopping/ConfigDetail.xhtml" x="338" y="946" id="pf163196464714514" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf16319646471454" path="/shopping/ConfigDetail.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="shopping/OrderDetail.xhtml" x="338" y="1330" id="pf163196464714515" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf16319646471455" path="/shopping/OrderDetail.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="shopping/OfertaDetail.xhtml" x="338" y="1714" id="pf163196464714516" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf16319646471456" path="/shopping/OfertaDetail.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login/error.xhtml" x="338" y="2098" id="pf163196464714517" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf16319646471458" path="/login/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login/LoginForm.xhtml" x="338" y="2482" id="pf163196464714518" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf16319646471459" path="/login/LoginForm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="backoffice/AccountManagement.xhtml" x="338" y="2866" id="pf163196464714519" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf163196464714510" path="/backoffice/AccountManagement.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="EntityLoaderView.xhtml" id="pf163196464714520" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf163196464714511" path="/EntityLoaderView.xhtml"/>
+  <links id="pf16319646471452" target="pf163196464714512" source="pf16319646471451" outcome="cart"/>
+  <links id="pf16319646471453" target="pf163196464714513" source="pf16319646471451" outcome="availability"/>
+  <links id="pf16319646471454" target="pf163196464714514" source="pf16319646471451" outcome="config"/>
+  <links id="pf16319646471455" target="pf163196464714515" source="pf16319646471451" outcome="order"/>
+  <links id="pf16319646471456" target="pf163196464714516" source="pf16319646471451" outcome="oferta"/>
+  <links id="pf16319646471457" target="pf163196464714513" source="pf16319646471451" outcome="home"/>
+  <links id="pf16319646471458" target="pf163196464714517" source="pf16319646471451" outcome="error"/>
+  <links id="pf16319646471459" target="pf163196464714518" source="pf16319646471451" outcome="login"/>
+  <links id="pf163196464714510" target="pf163196464714519" source="pf16319646471451" outcome="user"/>
+  <links id="pf163196464714511" target="pf163196464714520" source="pf16319646471451" outcome="entityloader"/>
+</pageflow:Pageflow>

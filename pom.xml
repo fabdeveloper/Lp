@@ -4,14 +4,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>BS</groupId>
+  <groupId>EShop</groupId>
   <artifactId>Lp</artifactId>
   <version>0</version>
   <packaging>war</packaging>
 
-  <name>Lp Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <name>Lp</name>
+
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,33 +43,6 @@
 </dependency>
 
 
-        <dependency>
-		    <groupId>org.apache.poi</groupId>
-		    <artifactId>poi</artifactId>
-		    <version>3.15</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.poi</groupId>
-		    <artifactId>poi-ooxml</artifactId>
-		    <version>3.15</version>
-		</dependency>
-		
-
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
-		    <groupId>mysql</groupId>
-		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.47</version>
-		</dependency>
-		
-		
-		
-		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
-		<dependency>
-		    <groupId>org.primefaces</groupId>
-		    <artifactId>primefaces</artifactId>
-		    <version>8.0</version>
-		</dependency>
 		
 	<dependency>
   		<groupId>EShop</groupId>

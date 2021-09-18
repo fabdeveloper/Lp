@@ -77,5 +77,14 @@
 		   <to-view-id>/backoffice/AccountManagement.xhtml</to-view-id>
 	   </navigation-case>   
    </navigation-rule> 
+   
+   
+      <navigation-rule>
+	   <from-view-id>/*</from-view-id>
+	   <navigation-case>
+		   <from-outcome>entityloader</from-outcome>
+		   <to-view-id>/EntityLoaderView.xhtml</to-view-id>
+	   </navigation-case>   
+   </navigation-rule> 
  
 </faces-config>

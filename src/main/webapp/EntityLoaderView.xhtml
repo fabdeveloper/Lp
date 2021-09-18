@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:comps="http://jsfcompslib.src/taglib"
+	xmlns:c="http://java.sun.com/jsf/core"	 
+	xmlns:ui="http://primefaces.org/ui"
+	xmlns:p="http://java.sun.com/jsf/html">
+<p:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<p:outputStylesheet library="css" name="slideshowcontrol.css"></p:outputStylesheet>
+</p:head>
+<p:body>
+
+
+
+	<p:form>
+	
+	<!-- PRODUCT -->
+	<comps:EntityLoaderControl
+
+
+			entitytableField="#{entityLoaderViewBB.productSelected}"
+			entitytableList="#{entityLoaderViewBB.listaProductos}"
+			entitytableListaColumnas="#{entityLoaderViewBB.listaColumnasProducto}"
+			entitytableProcRowSelectListener="#{entityLoaderViewBB.productSelectListener()}"
+			
+			inputfilenameField="#{entityLoaderViewBB.productFileName}"
+
+			inputsheetnameField="#{entityLoaderViewBB.productSheetName}"
+			
+			actionloadfileField="#{entityLoaderViewBB.actionLoadFileProduct()}"
+			actionloadfileDisabled="#{entityLoaderViewBB.actionloadfileProductDisabled()}"
+			
+			inputparentselectedField="#{entityLoaderViewBB.productSelected}"
+			inputparentselectedDisabled="true"
+			
+			actionbindtoparentField="#{entityLoaderViewBB.productSelectListener()}"
+			actionbindtoparentDisabled="true"
+			
+			actioncreateallField="#{entityLoaderViewBB.actioncreateallProduct()}"
+			actioncreateallDisabled="#{entityLoaderViewBB.actioncreateallProductDisabled()}"
+			
+			actionloadfromdb="Load from DB"
+			actionloadfromdbField="#{entityLoaderViewBB.loadProductFromDB()}"
+
+	>
+	</comps:EntityLoaderControl>
+
+
+	<!-- ARTICULOS -->
+
+
+	<comps:EntityLoaderControl
+
+
+			entitytableField="#{entityLoaderViewBB.articuloSelected}"
+			entitytableList="#{entityLoaderViewBB.listaArticulos}"
+			entitytableListaColumnas="#{entityLoaderViewBB.listaColumnasArticulo}"
+			entitytableProcRowSelectListener="#{entityLoaderViewBB.articuloSelectListener()}"
+			
+			inputfilenameField="#{entityLoaderViewBB.articulosFileName}"
+
+			inputsheetnameField="#{entityLoaderViewBB.articuloSheetName}"
+
+			actionloadfileField="#{entityLoaderViewBB.actionLoadFileArticulo()}"
+			actionloadfileDisabled="#{entityLoaderViewBB.actionloadfileArticuloDisabled()}"
+			
+			inputparentselectedField="#{entityLoaderViewBB.productSelected}"
+			inputparentselectedDisabled="true"
+			
+			actionbindtoparentField="#{entityLoaderViewBB.actionbindtoparentProduct()}"
+			actionbindtoparentDisabled="#{entityLoaderViewBB.actionbindtoparentProductDisabled()}"
+			
+			actioncreateallField="#{entityLoaderViewBB.actioncreateallArticulo()}"
+			actioncreateallDisabled="#{entityLoaderViewBB.actioncreateallArticuloDisabled()}"
+			
+			actionloadfromdb="Load from DB"
+			actionloadfromdbField="#{entityLoaderViewBB.loadArticulosFromDB()}"
+
+	>
+	</comps:EntityLoaderControl>
+	
+	
+		<!-- OFERTAS -->
+	
+	
+		<comps:EntityLoaderControl
+
+
+			entitytableField="#{entityLoaderViewBB.ofertaSelected}"
+			entitytableList="#{entityLoaderViewBB.listaOfertas}"
+			entitytableListaColumnas="#{entityLoaderViewBB.listaColumnasOferta}"
+			entitytableProcRowSelectListener="#{entityLoaderViewBB.ofertaSelectListener()}"
+			
+			inputfilenameField="#{entityLoaderViewBB.ofertasFileName}"
+
+			inputsheetnameField="#{entityLoaderViewBB.ofertaSheetName}"
+			
+			actionloadfileField="#{entityLoaderViewBB.actionLoadFileOferta()}"
+			actionloadfileDisabled="#{entityLoaderViewBB.actionloadfileOfertaDisabled()}"
+			
+			inputparentselectedField="#{entityLoaderViewBB.articuloSelected}"
+			inputparentselectedDisabled="true"
+			
+			actionbindtoparentField="#{entityLoaderViewBB.actionbindtoparentArticulo()}"
+			actionbindtoparentDisabled="#{entityLoaderViewBB.actionbindtoparentArticuloDisabled()}"
+			
+			actioncreateallField="#{entityLoaderViewBB.actioncreateallOferta()}"
+			actioncreateallDisabled="#{entityLoaderViewBB.actioncreateallOfertaDisabled()}"
+			
+			actionloadfromdb="Load from DB"
+			actionloadfromdbField="#{entityLoaderViewBB.loadOfertasFromDB()}"
+
+	>
+	</comps:EntityLoaderControl>
+
+
+			
+			
+
+	</p:form>
+	
+	<p:messages>
+		<p:message></p:message>
+
+	</p:messages>
+
+
+</p:body>
+</html>
+
+
+
+
+<!-- 
+
+dataTableClass=""
+inputTextClass=""
+commandButtonClass=""
+entitytable=""
+entitytableField=""
+entitytableDisabled=""
+entitytableRendered=""
+entitytableList=""
+entitytableListaColumnas=""
+entitytable_bScrollable=""
+entitytableSelectionMode=""
+entitytableProcRowSelectListener=""
+inputfilename=""
+inputfilenameField=""
+inputfilenameDisabled=""
+inputfilenameRendered=""
+inputsheetname=""
+inputsheetnameField=""
+inputsheetnameDisabled=""
+inputsheetnameRendered=""
+actionloadfile=""
+actionloadfileField=""
+actionloadfileDisabled=""
+actionloadfileRendered=""
+inputparentselected=""
+inputparentselectedField=""
+inputparentselectedDisabled=""
+inputparentselectedRendered=""
+actionbindtoparent=""
+actionbindtoparentField=""
+actionbindtoparentDisabled=""
+actionbindtoparentRendered=""
+actioncreateall=""
+actioncreateallField=""
+actioncreateallDisabled=""
+actioncreateallRendered=""
+
+ -->
